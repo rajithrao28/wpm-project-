@@ -1,17 +1,20 @@
 const express = require('express');
 const path = require('path');
-const indexRouter = require('./app_server/routes/index');
 
 const app = express();
-const PORT = 3000;
+const router = require('./myapp/routes/index'); // Adjust path if needed
 
-app.set('views', path.join(__dirname, 'app_server', 'views'));
-app.set('view engine', 'pug');
+// Set the view engine
+app.set('views', path.join(__dirname, 'myapp/views'));
+app.set('view engine', 'jade');
 
-app.use(express.static(path.join(__dirname, 'public')));
-app.use('/', indexRouter);
+// Serve static files (like style.css)
+app.use(express.static(path.join(__dirname, 'myapp', 'public')));
 
-app.listen(PORT, () => {
-  console.log(`Server running at http://localhost:${PORT}`);
+// Use routes
+app.use('/', router);
+
+// Start the server
+app.listen(3000, () => {
+  console.log('Server running at http://localhost:3000');
 });
-

@@ -7,9 +7,10 @@
     "start": "node name.js"
   },
   "dependencies": {
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "jade": "^0.29.0",
+    "pug": "^3.0.3"
   },
   "author": "",
   "license": "ISC"
 }
-
